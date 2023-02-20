@@ -2,7 +2,7 @@
 using System.Text;
 //Locations
 string DefinePath = $"{Environment.CurrentDirectory}\\common\\units\\naval definitions\\";
-string OutputPath = $"{Environment.CurrentDirectory}\\common\\units\\naval definitions\\test\\";
+string OutputPath = $"{Environment.CurrentDirectory}\\common\\units\\";
 string LocalizationPath = $"{Environment.CurrentDirectory}\\";
 Dictionary<string, Dictionary<string, Dictionary<string, string>>> classes = new();
 StringBuilder localizationfile = new("l_english:");
