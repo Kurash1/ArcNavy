@@ -42,8 +42,18 @@ base_cannons = {Get("base_cannons", "0")                                        
 blockade = {Get("blockade", "0")                                                                  }
 sail_speed = {Get("sail_speed", "0.0")                                                              }
 sailors = {Get("sailors", "0")                                                                    }
-sprite_level = {Get("sprite_level", "0")                                                          }";
+sprite_level = {Get("sprite_level", "0")                                                          }
+trigger = {'{'} {sGet("trigger")} {'}'}";
             File.WriteAllText(path, file);
+            string sGet(string key)
+            {
+                if (classes[type][ship].ContainsKey(key))
+                    return classes[type][ship][key];
+                else if (classes[type]["default"].ContainsKey(key))
+                    return classes[type]["default"][key];
+                else
+                    return "always = yes";
+            }
             string Get(string key, string format)
             {
                 float modifier = 1f;
