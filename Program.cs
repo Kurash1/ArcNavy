@@ -44,14 +44,14 @@ blockade = {Get("blockade", "0")                                                
 sail_speed = {Get("sail_speed", "0.0")                                                              }
 sailors = {Get("sailors", "0")                                                                    }
 sprite_level = {Get("sprite_level", "0")                                                          }
-trigger = {'{'} {sGet("trigger")} {'}'}";
+trigger = {'{'} {GetTrigger("trigger")} {'}'}";
             File.WriteAllText(path, file);
-            string sGet(string key)
+            string GetTrigger(string key)
             {
-                if (classes[type][ship].ContainsKey(key))
-                    return classes[type][ship][key];
-                else if (classes[type]["default"].ContainsKey(key))
-                    return classes[type]["default"][key];
+                if (culture.Value.ContainsKey(key))
+                    return culture.Value[key];
+                else if (classes["cultures"]["default"].ContainsKey(key))
+                    return classes["cultures"]["default"][key];
                 else
                     return "always = yes";
             }
