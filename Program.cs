@@ -37,6 +37,7 @@ foreach (KeyValuePair<string,Dictionary<string, string>> culture in classes["cul
             string path = $"{OutputPath}{culture.Key}_{type.ToUpper()[0]}{ship.PadLeft(2, '0')}.txt";
             string file =
 @$"type = {type}
+{GetTradePower()}
 hull_size = {Get("hull_size", "0")                                                                }
 base_cannons = {Get("base_cannons", "0")                                                          }
 blockade = {Get("blockade", "0")                                                                  }
@@ -53,6 +54,13 @@ trigger = {'{'} {sGet("trigger")} {'}'}";
                     return classes[type]["default"][key];
                 else
                     return "always = yes";
+            }
+            string GetTradePower()
+            {
+                float trade_power = float.Parse(Get("trade_power", "0.0"));
+                if (trade_power == 0)
+                    return "";
+                return $"trade_power = {trade_power}";
             }
             string Get(string key, string format)
             {
