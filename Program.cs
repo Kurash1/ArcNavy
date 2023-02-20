@@ -1,9 +1,9 @@
 ﻿using ArcShared;
 using System.Text;
 //Locations
-string DefinePath = "C:\\Users\\Jesse\\Documents\\Paradox Interactive\\Europa Universalis IV\\mod\\ESB\\common\\units\\naval definitions\\";
-string OutputPath = "C:\\Users\\Jesse\\Documents\\Paradox Interactive\\Europa Universalis IV\\mod\\ESB\\common\\units\\naval definitions\\test\\";
-string LocalizationPath = "C:\\Users\\Jesse\\Documents\\Paradox Interactive\\Europa Universalis IV\\mod\\ESB\\";
+string DefinePath = $"{Environment.CurrentDirectory}\\common\\units\\naval definitions\\";
+string OutputPath = $"{Environment.CurrentDirectory}\\common\\units\\naval definitions\\test\\";
+string LocalizationPath = $"{Environment.CurrentDirectory}\\";
 Dictionary<string, Dictionary<string, Dictionary<string, string>>> classes = new();
 StringBuilder localizationfile = new("l_english:");
 Arc.LoadClasses(File.ReadAllText($"{DefinePath}types.txt"), "cultures", classes);
